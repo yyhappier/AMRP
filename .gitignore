@@ -1,0 +1,119 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+build/
+dist/
+.eggs/
+.installed.cfg
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Virtual envs
+venv/
+.venv/
+env/
+ENV/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs / runtime artifacts
+logs/
+*.log
+*.log.*
+runs/
+wandb/
+tb_logs/
+mlruns/
+# Training runtime logs (large, not tracked)
+log/ms-swift_aw/**/train_*.log
+# Keep eval scores and training progress txt logs
+!log/
+!log/eval_alce_score/
+!log/eval_alce_score/**
+!log/ms-swift_aw/
+!log/ms-swift_aw/**/*.txt
+
+# Keep ArmoRM 5-reward eval summaries & per-sample scores (small, needed for reporting).
+# Only the two files below are un-ignored; responses.jsonl and eval_*.log stay ignored.
+!logs/
+!logs/ms-swift_aw/
+!logs/ms-swift_aw/armo_reward_eval/
+!logs/ms-swift_aw/armo_reward_eval/*/
+!logs/ms-swift_aw/armo_reward_eval/*/summary.json
+!logs/ms-swift_aw/armo_reward_eval/*/scores.jsonl
+# Re-ignore raw generations (large, not needed for reporting).
+logs/ms-swift_aw/armo_reward_eval/*/responses.jsonl
+
+# Output / plots / temp
+plots/
+outputs/
+tmp/
+temp/
+
+# Checkpoints / model weights (绝对不能进 GitHub)
+*.ckpt
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.h5
+checkpoints/
+ckpts/
+saved_models/
+
+# Datasets / large data (按需取消 data/ 这一行)
+*.parquet
+# Prepared datasets required by the paper's training/evaluation entries.
+!/data/math/numina_train_10k_seed42.parquet
+!/data/math/valid.all.parquet
+!/data/helpsteer2/mt_bench.parquet
+*.arrow
+*.tar
+*.tar.gz
+*.zip
+
+# Notebooks
+.ipynb_checkpoints/
+
+# ms-swift specific
+.hope
+hope/
+
+# large training/eval outputs
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Ignore the entire checkpoint/ dir (weights + optimizer state, too large for git)
+checkpoint/
+
+# Local experiment artifacts excluded from the paper release.
+# Override the historical log exceptions above.
+/checkpoint/
+/log/
+/logs/
+/output/
+/hope/
+/tmp/
+/__pycache__/
+/eval/output/
+/.codebuddy/
+/nohup*.out
